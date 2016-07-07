@@ -8,17 +8,6 @@
 	<name>TopDownServiceClient Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
 		<!-- adding Apache CXF libraries -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -30,33 +19,28 @@
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>3.0.4</version>
 		</dependency>
+        
+		<!-- adding Spring Web MVC libraries -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.2.13.RELEASE</version>
+		</dependency>
+		<!-- adding JSTL libraries -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-codegen-plugin</artifactId>
-				<version>3.0.4</version>
-				<executions>
-					<execution>
-						<id>generate-sources</id>
-						<phase>generate-sources</phase>
-						<configuration>
-							<sourceRoot>src/main/java-generated</sourceRoot>
-							<wsdlOptions>
-								<wsdlOption>
-									<wsdl>http://localhost:8080/TopDownSimpleService/topdownfault?wsdl</wsdl>
-								</wsdlOption>
-							</wsdlOptions>
-						</configuration>
-						<goals>
-							<goal>wsdl2java</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<!-- adding the plug-ins we have been using (e.g., codegen, tomcat, compiler) -->
+		<!--  adding the plug-ins we have been using (e.g., codegen, tomcat, compiler) -->
 		<pluginManagement>
 			<plugins>
 				<plugin>
